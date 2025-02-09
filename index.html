@@ -23,6 +23,7 @@
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             animation: slideDown 0.5s ease-in-out;
+            z-index: 1000;
         }
 
         .navbar ul {
@@ -54,6 +55,7 @@
             padding: 20px;
             animation: fadeIn 0.5s ease-in-out;
             box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+            z-index: 900;
         }
 
         .sidebar ul {
@@ -78,10 +80,12 @@
 
         .video-section {
             margin-left: 220px;
-            padding: 20px;
+            padding: 100px 20px 20px;
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            position: relative;
+            z-index: 800;
         }
 
         .video {
@@ -90,6 +94,13 @@
             border-radius: 10px;
             transition: 0.3s;
             box-shadow: 0 4px 8px rgba(255, 65, 108, 0.3);
+            position: relative;
+            z-index: 850;
+        }
+
+        .video img {
+            width: 100%;
+            border-radius: 5px;
         }
 
         .video:hover {
@@ -109,7 +120,7 @@
 
         @media (max-width: 768px) {
             .sidebar { display: none; }
-            .video-section { margin-left: 0; }
+            .video-section { margin-left: 0; padding-top: 80px; }
         }
     </style>
 </head>
