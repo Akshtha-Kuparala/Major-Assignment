@@ -3,162 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Video Streaming</title>
+    <title>Student Video Streaming Platform</title>
     <style>
+        /* Custom font import */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
+            background-color: #181818;
             color: white;
+            display: flex;
         }
 
+        /* Navigation Bar */
         .navbar {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(255,255,255,0.5);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            animation: slideDown 0.5s ease-in-out;
+            background: #202020;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             z-index: 1000;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards 0.5s;
         }
 
-        .navbar ul {
-            list-style: none;
-            padding: 0;
+        .navbar h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .nav-links {
             display: flex;
-            justify-content: center;
             gap: 20px;
         }
 
-        .navbar ul li a {
+        .nav-links a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
         }
 
-        .navbar ul li a:hover {
-            color: #ffdd57;
-        }
-
+        /* Sidebar */
         .sidebar {
             position: fixed;
             left: 0;
-            top: 50px;
+            top: 60px;
             width: 200px;
-            background: #1e1e1e;
-            height: 100%;
+            height: 100vh;
+            background: #242424;
             padding: 20px;
-            animation: fadeIn 0.5s ease-in-out;
-            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
-            z-index: 900;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards 0.5s;
         }
 
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar ul li {
-            margin: 20px 0;
-        }
-
-        .sidebar ul li a {
+        .sidebar a {
             color: white;
             text-decoration: none;
-            font-size: 16px;
-            transition: 0.3s;
+            padding: 10px;
+            display: block;
         }
 
-        .sidebar ul li a:hover {
-            color: rgba(255,255,255,0.5);
-        }
-
+        /* Video Section */
         .video-section {
             margin-left: 220px;
-            padding: 100px 20px 20px;
+            margin-top: 70px;
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            position: relative;
-            z-index: 800;
+            padding: 20px;
         }
 
-        .video {
-            background: #1e1e1e;
-            padding: 15px;
-            border-radius: 10px;
+        .video-box {
+            background: #303030;
+            padding: 10px;
+            width: 300px;
+            border-radius: 8px;
             transition: 0.3s;
-            box-shadow: 0 4px 8px rgba(255,255,255,0.5);
-            position: relative;
-            z-index: 850;
         }
 
-        .video img {
+        .video-box:hover {
+            border: 1px solid white;
+            box-shadow: 0 0 10px white;
+        }
+
+        .video-box img {
             width: 100%;
             border-radius: 5px;
         }
 
-        .video:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(255,255,255,0.5);
+        .video-title {
+            font-size: 16px;
+            margin-top: 10px;
         }
 
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            .video-section {
+                margin-left: 0;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-
-        @media (max-width: 768px) {
-            .sidebar { display: none; }
-            .video-section { margin-left: 0; padding-top: 80px; }
-        }
     </style>
 </head>
 <body>
-    <header class="navbar"> 
-        <h1>Student Video Platform</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><input type="text" placeholder="Search..." style="border-radius: 5px; padding: 5px;"></li>
-                <li><a href="#">Courses</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <aside class="sidebar">
-        <ul>
-            <li><a href="#">Liked Videos</a></li>
-            <li><a href="#">Downloads</a></li>
-            <li><a href="#">Search</a></li>
-            <li><a href="#">Courses</a></li>
-            <li><a href="#">Subscriptions</a></li>
-        </ul>
-    </aside>
+    <div class="navbar">
+        <h1>StudyStream</h1>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Search</a>
+            <a href="#">Courses</a>
+        </div>
+    </div>
 
-    <main class="video-section">
-        <div class="video">
-            <a href="#"><img src="thumbnail1.jpg" alt="Video 1"></a>
-            <p>Video Title 1</p>
+    <div class="sidebar">
+        <a href="#">Liked Videos</a>
+        <a href="#">Downloads</a>
+        <a href="#">Search</a>
+        <a href="#">Courses</a>
+        <a href="#">Subscriptions</a>
+    </div>
+
+    <div class="video-section">
+        <div class="video-box">
+            <img src="thumbnail1.jpg" alt="Video Thumbnail">
+            <p class="video-title">Learning CSS Animations</p>
         </div>
-        <div class="video">
-            <a href="#"><img src="thumbnail2.jpg" alt="Video 2"></a>
-            <p>Video Title 2</p>
+        <div class="video-box">
+            <img src="thumbnail2.jpg" alt="Video Thumbnail">
+            <p class="video-title">Responsive Web Design</p>
         </div>
-        <div class="video">
-            <a href="#"><img src="thumbnail3.jpg" alt="Video 3"></a>
-            <p>Video Title 3</p>
+        <div class="video-box">
+            <img src="thumbnail3.jpg" alt="Video Thumbnail">
+            <p class="video-title">Mastering Flexbox</p>
         </div>
-    </main>
+    </div>
 </body>
 </html>
