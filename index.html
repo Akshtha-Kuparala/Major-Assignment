@@ -15,6 +15,7 @@
             background-color: #181818;
             color: white;
             display: flex;
+            flex-direction: column;
         }
 
         /* Navigation Bar */
@@ -31,11 +32,12 @@
             z-index: 1000;
             opacity: 0;
             animation: fadeIn 0.5s forwards 0.5s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .navbar h1 {
             margin: 0;
-            font-size: 20px;
+            font-size: 22px;
         }
 
         .nav-links {
@@ -46,6 +48,13 @@
         .nav-links a {
             color: white;
             text-decoration: none;
+            font-weight: 600;
+        }
+
+        .search-bar {
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
         }
 
         /* Sidebar */
@@ -53,7 +62,7 @@
             position: fixed;
             left: 0;
             top: 60px;
-            width: 200px;
+            width: 220px;
             height: 100vh;
             background: #242424;
             padding: 20px;
@@ -62,6 +71,7 @@
             gap: 15px;
             opacity: 0;
             animation: fadeIn 0.5s forwards 0.5s;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
         }
 
         .sidebar a {
@@ -69,24 +79,33 @@
             text-decoration: none;
             padding: 10px;
             display: block;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #333;
+            border-radius: 5px;
         }
 
         /* Video Section */
         .video-section {
-            margin-left: 220px;
-            margin-top: 70px;
+            margin-left: 240px;
+            margin-top: 80px;
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             padding: 20px;
+            justify-content: center;
         }
 
         .video-box {
             background: #303030;
             padding: 10px;
-            width: 300px;
+            width: 280px;
             border-radius: 8px;
             transition: 0.3s;
+            text-align: center;
         }
 
         .video-box:hover {
@@ -126,10 +145,10 @@
 </head>
 <body>
     <div class="navbar">
-        <h1>StudyStream</h1>
+        <h1>Student Video Platform</h1>
         <div class="nav-links">
             <a href="#">Home</a>
-            <a href="#">Search</a>
+            <input type="text" class="search-bar" placeholder="Search...">
             <a href="#">Courses</a>
         </div>
     </div>
@@ -144,17 +163,24 @@
 
     <div class="video-section">
         <div class="video-box">
-            <img src="thumbnail1.jpg" alt="Video Thumbnail">
-            <p class="video-title">Learning CSS Animations</p>
+            <a href="https://www.youtube.com/watch?v=y8-F5-2EIcg" target="_blank">
+                <img src="download(2).jpg" alt="Video Thumbnail">
+                <p class="video-title">Video Title 1</p>
+            </a>
         </div>
         <div class="video-box">
-            <img src="thumbnail2.jpg" alt="Video Thumbnail">
-            <p class="video-title">Responsive Web Design</p>
+            <a href="video2.mp4" target="_blank">
+                <img src="thumbnail2.jpg" alt="Video Thumbnail">
+                <p class="video-title">Video Title 2</p>
+            </a>
         </div>
         <div class="video-box">
-            <img src="thumbnail3.jpg" alt="Video Thumbnail">
-            <p class="video-title">Mastering Flexbox</p>
+            <a href="video3.mp4" target="_blank">
+                <img src="thumbnail3.jpg" alt="Video Thumbnail">
+                <p class="video-title">Video Title 3</p>
+            </a>
         </div>
     </div>
 </body>
 </html>
+
